@@ -1,4 +1,4 @@
-# Night Zookeeper House Rules
+Night Zookeeper House Rules
 ===
 
 ## Introduction
