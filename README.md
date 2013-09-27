@@ -388,7 +388,7 @@ Don't declare functions in a block (if, while, for, etc.).
 Use parentheses for all function calls except when there's a callback or an object as last argument.  
 When declaring a function, if it doesn't take arguments don't use the parentheses.
 
-_Always_ use the return keyword, unless it's a single line statement (namely a inline/lambda function).
+_Always_ use the `return` keyword, unless it's a single line statement (namely a inline/lambda function).
 If a function doesn't return anything, use an empty `return` statement. That's because in CoffeeScript the `return` is implicit and for instance, if the last statement of your function is a loop, it will do some extra work to be able to return something.  
 If you want to enable method chaining, return `@`.
 Try to stick to one return per function as much as possible. However, it is sometimes practical to have an 'early' `return` in case of error.
@@ -407,6 +407,7 @@ otter = getOtter()
 
 findOtters: (otterName, callback) ->
 	otters = (otter for otter in @otters when otter.name is otterName)
+	
 	if otters.length > 0
 		callback?(null, otters)
 	else
