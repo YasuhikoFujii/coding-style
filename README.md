@@ -3,14 +3,16 @@ Night Zookeeper House Rules
 
 ## Introduction
 
-This is CoffeeScript. Whitespace is significant (that means that you will have to indent your code properly) and you're about to read that although the language allows you to omit braces, parentheses and semi-colons everywhere, it's not always what's the most readable.
+This is CoffeeScript. Whitespace is significant (meaning that you will have to indent your code properly) and you're about to read that although the language allows you to omit braces and parentheses everywhere, it's not always what looks the most readable.
 
-This coding style is derived from working with CoffeeScript for a while but also what both the JavaScript and CoffeeScript community recommends (you can have a look in the references). Two rules:
+This coding style is derived from working with CoffeeScript for a while but also from what both the JavaScript and CoffeeScript community recommends (you can have a look in the references). Two rules:
 
 - This is the coding style. Stick to it. *All* the time.
 - Don't do anything stupid and everything will be fine.
 
-Now, as a rule of thumb, clarity and consistency should be your first concern. If you want don't know what to do, imagine you're writing an essay: follow the English syntax rules and one idea per paragraph. Also, we're based in the UK, write in British English.
+As a rule of thumb, clarity and consistency should be your first concern. If you want don't know what to do, imagine you're writing an essay: follow the English syntax rules and one idea per paragraph. Also, we're based in the UK, write in British English.
+
+At the end of the document you will find some tips and notes on CoffeeScript and Git.
 
 ## Naming
 
@@ -18,27 +20,27 @@ Be descriptive. It doesn't mean that you have to write sentences as function or 
 
 [EXAMPLE]
 
-Use **PascalCase** for required libraries, modules and classes  
-Use **camelCase** for everything else (functions, methods, properties, variables, etc.)  
-Use **ALL_CAPS** for constants  
-Prefix jQuery variables with `$`  
-Prefix private/internal things with `_` if there's no `internals` object
+Use **PascalCase** for required libraries, modules and classes.  
+Use **camelCase** for everything else (functions, methods, properties, variables, etc.).  
+Use **ALL_CAPS** for constants.  
+Prefix jQuery variables with `$`.  
+Prefix private/internal things with `_` if there's no `internals` object.
 
 [EXAMPLE]
 
-Use the plural form for arrays and collections and the singular form for single items
+Use the plural form for arrays and collections and the singular form for single items.
 
 [EXAMPLE]
 
 Use vocabulary like is, has, set and get where possible.  
 Starting Boolean variables with is is recommended.  
-Avoid private words such as `default, private, delete, continue, new, arguments`
+Avoid private words such as `default, private, delete, continue, new, arguments`.
 
 [EXAMPLE]
 
-Avoid numbers in variable names except for third party modules (S3 etc.)
+Avoid numbers in variable names except for third party modules (S3 etc.).
 
-Replace `this` with `@` everywhere
+Replace `this` with `@` everywhere.
 
 [EXAMPLE]
 
@@ -52,19 +54,19 @@ Use triple quotes for multiline strings (e.g. templates).
 
 [EXAMPLE]
 
-Never begin a line with an operator
+Never begin a line with an operator.
 
 [EXAMPLE]
 
-if method chaining and too long/ugly to fit on one line, use leading . and one statement per line.
+If you are chaining methods and it is too long/ugly to fit on one line, use a leading `.` and one statement per line.
 
 [EXAMPLE]
 
-Do not extend native objects like Array, Object, etc.
+Do not extend native objects like `Array`, `Object`, etc.
 
-Use `delete` only to remove a property from an object, otherwise set the property to null (not undefined).
+Use `delete` only to remove a property from an object, otherwise set the property to `null` (_not_ `undefined`).
 
-In classes, one line methods are allowed (no need for a new line). They should be grouped together at the top of the class after the static methods. They should still be separated by a blank line.
+In classes, one line methods are allowed (no need for a new line after the arrow). They should be grouped together at the top of the class after the static methods.
 
 Accessor functions for properties are allowed but not required. If you start needing to access lots of properties or need accessors, maybe think about a Backbone Model.
 
@@ -91,28 +93,29 @@ Two rules borrowed from the English syntax:
 
 No spaces immediately inside parentheses or array brackets.  
 Spaces immediately inside inline objects (braces).  
-One space after the argument list of a function declaration
+One space after the argument list of a function declaration.
 
 You can align the content of a single assignment but be wary of CoffeeScript's meaningful indentation. Don't try to align assignments visually. It never works and it's a pain to maintain.
 
 [EXAMPLE]
 
 There is a blank line at the end of a file. No trailing whitespace otherwise.
-There is _always_ a blank line before a block statement (if, for, functions, etc.) unless immediately nested.
-There is _always_ a blank line between function/methods declarations except inline.
+There is _always_ a blank line before _and_ after a block statement (if, for, functions, etc.) unless immediately nested or one line.
+There is _always_ a blank line between function/methods declarations except inline.  
+There is _always_ a blank line before a `return` statement.
 
 As a rule of thumb, avoid cramped/packed blocks of instructions, they are hard to decipher and navigate. GIVE THE CODE SOME DAMN SPACE.
 
 [EXAMPLE]
 
-There is _always_ spaces around operators such as `*, +, -, /, <=, >=,  =, is, isnt, and, or, in, not, etc.`. There is _always_ a space after a keyword.
+There is _always_ a space after a keyword. There is _always_ spaces around operators such as `*, +, -, /, <=, >=,  =, is, isnt, and, or, in, not, etc.`.  
 In rare cases, for example calculating indexes in between brackets, space around the mathematical operators can be omitted.
 
 [EXAMPLE]
 
 ## Conditions
 
-The CoffeeScript keywords replacing ==, != etc. are preferred over their JavaScript equivalent. A non exhaustive list: `or, and, not, is, isnt`.
+The CoffeeScript keywords replacing `==, !=, etc.` are preferred over their JavaScript equivalent. A non exhaustive list: `or, and, not, is, isnt`.  
 When checking existence of a value in an array, use `in`.
 
 Conditions don't need to be surrounded by parentheses. You should still use parentheses to outline groups in your condition.  
@@ -120,15 +123,15 @@ For single conditions leading to a one liner, prefer the postfixed notation
 
 [EXAMPLE]
 
-CoffeeScript introduces `unless`. Never use it with an `else`, it doesn't read well at all. Unless should be avoided most of the time, except if it's postfixed for a negative condition.
+CoffeeScript introduces `unless`. Never use it with an `else`, it doesn't read well at all.`unless` should be avoided most of the time, _except_ if it's postfixed for a negative condition.
 
-Avoid ternary expression and break them down on multiple lines. Check that it can't be solved by a comparative assignment first. Ternaries are tolerated in strings interpolations, object assignment, inline function.
+Avoid ternary expression and break them down on multiple lines. Check that it can't be solved by a comparative assignment first. Ternaries are tolerated in strings interpolations, object assignment and inline function.
 
 [EXAMPLE]
 
 Use `?=` when you want to set a value to a variable only if it's `undefined` or `null`.  
 Use `or=` when you want to change the value of a variable if it returns `false`.  
-In both these cases, it will force the left side variable to be declared before the statement can be made.
+In both these cases, it will force the left side variable to be declared before the statement can be made (and that's a good thing).
 
 Use `?` to check for existence (not `null` and not `undefined`), a simple `if` is enough to check for falsy/thruthy values.
 
@@ -147,20 +150,20 @@ Multiline if/else have to use indentation.
 
 [EXAMPLE]
 
-Multiline conditions are encouraged if they become too long/hard to read
+Multiline conditions are encouraged if they become too long/hard to read.
 
 [EXAMPLE]
 
-A word of warning on chained comparison. They look cleaner but are a little less easy to read as the first comparison is inverted. It's probably best to use them solely to compare numbers, however other uses are tolerated as long as they are understandable.
+A word of warning on chained comparison. They look cleaner but are a little less easy to read as the first comparison is inverted. It's probably best to use them solely to compare numbers, however other uses are tolerated as long as they are understandable or commented.
 
 [EXAMPLE]
 
 ## Objects & Arrays
 
 Array and objects work by reference. Be careful how you assign and copy them.  
-To get a copy of an array you can use `slice()`. If you want a more versatile function call for both arrays and objects, use `_.clone()`.
+To get a copy of an array you can use `slice()`. If you want a more versatile method for both arrays and objects, use `_.clone()`.
 
-Don't use braces except for empty objects and inline objects (they should be removed if the object is the only argument of a function). Use indentation to show structure of the object/array.  
+Don't use braces except for empty objects and inline objects (they should be removed if the object is the only argument of a function). Use indentation to show structure of an object. Arrays can still be presented inline as using indentation only gets rid of the commas.  
 Objects should only be inlined if they are short, improve readability and are unlikely to change often.
 
 [EXAMPLE]
@@ -170,7 +173,8 @@ Use the literal array notation (`[]`) and if the array is multiline place the op
 
 [EXAMPLE]
 
-For ranges, make sure you know the difference between `..` and `…` as `..` is inclusive and `…` is exclusive. Stick to `..` or have notes explaining why the choice (for instance allows to not have an ugly `-1` to get the right index).
+For ranges, make sure you know the difference between `..` and `…`.  
+`..` is inclusive and `…` is exclusive. Stick to `..` or have notes explaining why the choice (for instance allows to not have an ugly `-1` to get the right index).
 
 [EXAMPLE]
 
@@ -178,7 +182,7 @@ Use the safe navigation operator `?` when accessing a property or chain of prope
 
 [EXAMPLE]
 
-Use subscript notation (`[]`) when accessing object properties with a variable. Otherwise use the dot notation.
+Use subscript notation (`[]`) when accessing object properties with a variable. Otherwise always use the dot notation.
 
 [EXAMPLE]
 
@@ -186,12 +190,9 @@ CoffeeScript has a powerful array comprehension syntax, make the most of it:
 
 - Use a postfixed `for`
 - Use the keyword `when` if you need to filter an array based on one or multiple conditions.
+- Use `of` to loop over key/values of an object
+- Use `in` to loop over an array
 - Surround the whole thing with parentheses when assigning the result to an array
-
-[EXAMPLE]
-
-Use `of` to iterate over key/values of an object
-Use `in` to loop over an array
 
 [EXAMPLE]
 
@@ -199,22 +200,22 @@ Use `in` to loop over an array
 ## Functions
 
 Don't declare functions in a block (if, while, for, etc.).  
-Use parentheses for all function calls except when there's a callback or object as last argument.  
+Use parentheses for all function calls except when there's a callback or an object as last argument.  
 When declaring a function, if it doesn't take arguments don't use the parentheses.
 
 [EXAMPLE]
 
 _Always_ use the return keyword, unless it's a single line statement (namely a inline/lambda function).
-If a function doesn't return anything, use an empty return statement. That's because in CoffeeScript the return is implicit and for instance if the last statement of your function is a loop, it will do some extra work to be able to return something.  
+If a function doesn't return anything, use an empty `return` statement. That's because in CoffeeScript the `return` is implicit and for instance, if the last statement of your function is a loop, it will do some extra work to be able to return something.  
 If you want to enable method chaining, return `@`.
 
 [EXAMPLE]
 
 Callbacks should follow the node convention:
 
-- The callback is the last argument of the function and is called `callback`
+- The callback is the last argument of the function and is called `callback` or `next`
 - `err` is the first argument and is null (or a falsy value) when the callback is successful
-- The second argument is more flexible in its naming (data, res or more semantically depending on what you're expecting in return e.g a list of things can use a plural), can be omitted if err isn't null
+- The second argument is more flexible in its naming (`data`, `res` or the plural of the type of things you expect), can be omitted if there was error
 
 Conditional/optional callbacks and functions should be call with the safe navigation operator `?`.
 
@@ -255,14 +256,14 @@ FIXME/TODO:
 
 ## Tips
 
-_These are a collection of best practices collected from different sources. It's encouraged behaviour and most of the time cannot be enforced. It's something to keep in mind when you're structuring the code._
+_These are a collection of best practices picked and mixed from different sources. It's encouraged behaviour and most of the time cannot be enforced. It's something to keep in mind when you're structuring the code._
 
 Always check underscore before doing anything stupid (omit, pluck, map...)  
 If you have to assign multiple values to an object, check if you can use `_.extend` or `_.defaults`.
 
 [EXAMPLE]
 
-Prefer objects over list of arguments in constructor (think Backbone).
+Prefer objects over list of arguments in constructor (think Backbone).  
 You can use destructed assignment in the constructor to improve readability.  
 	`{@name, @age, @height} = options` or `{@name, @age, @height}`
 Alternatively, `_.defaults` or `_.extend` can be used.
@@ -275,7 +276,7 @@ Prefer objects to argument list in general (events, function, etc.) to allow add
 
 Be careful with CoffeeScript's local variable auto assignment. It's 98% of the time what you want to do and avoids global variables (that should not be used except when attaching the whole app to the global namespace for instance). However, if you are referencing an already existing global variable, it will overwrite it instead of creating a local var with the same name.
 
-Only use `typeof` only to check if something is `undefined` (or maybe, a function). Prefer the existential operator `?`. You can use `_.isArray, _.isObject, etc.` methods if needed.
+Only use `typeof` to check if something is `undefined` (or maybe, a function). Prefer the existential operator `?`. You can use `_.isArray, _.isObject, etc.` methods if needed.
 
 When building some HTML to be inserted, build a DOM fragment/string and do a single insert instead of doing multiple inserts. A common approach is to build each string in an array, then use `join('')` to concatenate it. Combined with loop comprehensions this can be pretty powerful.
 
@@ -338,6 +339,7 @@ Use **snake-case** for file names. Make directories to group files instead of ap
 - [https://github.com/jashkenas/coffee-script/issues/425](https://github.com/jashkenas/coffee-script/issues/425)
 - [http://coffeescript.org](http://coffeescript.org)
 - [https://github.com/bevry/community/wiki/Coding-Standards](https://github.com/bevry/community/wiki/Coding-Standards)
+- [https://github.com/jashkenas/coffee-script/wiki/Common-Gotchas](https://github.com/jashkenas/coffee-script/wiki/Common-Gotchas)
 
 ## Git
 
