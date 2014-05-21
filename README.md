@@ -266,7 +266,11 @@ Use `?=` when you want to set a value to a variable only if it's `undefined` or 
 Use `or=` when you want to change the value of a variable if it returns `false`.  
 In both these cases, it will force the left side variable to be declared before the statement can be made (and that's a good thing).
 
-Use `?` to check for existence (not `null` and not `undefined`), a simple `if` is enough to check for falsy/thruthy values.
+Use `?` to check for existence (not `null` and not `undefined`), a simple `if` is enough to check for falsy/thruthy values. `?` can also be used as a stricter `or`, for instance when the first value to be tested can be `0`.
+
+```coffeescript
+key = i ? -1
+```
 
 As a reminder:
 
