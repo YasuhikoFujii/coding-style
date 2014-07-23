@@ -524,6 +524,8 @@ Setters can be one-liners by putting the @ variable in the argument list.
 setHappy: (@happy) ->
 ```
 
+If you have a `setTimeout` or `setInterval` running on a page, make sure you cancel it when the view is disposed to avoid memory leaks and errors.
+
 
 ## Git, GitHub & File Organisation
 
